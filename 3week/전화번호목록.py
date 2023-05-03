@@ -16,12 +16,19 @@
 # 같은 전화번호가 중복해서 들어있지 않습니다.
 
 # 효율성 테스트 3,4 실패
-def solution(phone_book):
-    answer = True
-    phone_book = sorted(phone_book)
+# def solution(phone_book):
+#     answer = True
+#     phone_book = sorted(phone_book)
 
+#     for i in range(len(phone_book)-1):
+#         for j in range(i+1, len(phone_book)):
+#             if phone_book[j].startswith(phone_book[i]):
+#                 return False
+#     return answer
+
+def solution(phone_book):
+    phone_book.sort()
     for i in range(len(phone_book)-1):
-        for j in range(i+1, len(phone_book)):
-            if phone_book[j].startswith(phone_book[i]):
-                return False
-    return answer
+        if phone_book[i] == phone_book[i+1][:len(phone_book[i])]:
+            return False
+    return True
